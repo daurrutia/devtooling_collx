@@ -1,0 +1,8 @@
+---
+# defaults file for setup_role
+
+k8s_pkg_list: fluxcd/tap/flux,helm,kubectx,kubernetes-cli,minikube
+
+dev_pkg_list: go,mysql-client,protobuf
+
+tools_pkg_list: grep,jq,netcat,terragrunt,tfenv,tree,wget

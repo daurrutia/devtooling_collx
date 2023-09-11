@@ -1,0 +1,21 @@
+---
+# tasks file for setup_role
+
+# - name: Task is running from within the role
+#   ansible.builtin.debug:
+#     msg: "This is a task from setup_role."
+
+- name: Install K8s packages
+  community.general.homebrew:
+    name: "{{ k8s_pkg_list }}"
+    state: present
+
+- name: Install software development packages
+  community.general.homebrew:
+    name: "{{ dev_pkg_list }}"
+    state: present
+
+- name: Install additional tooling packages
+  community.general.homebrew:
+    name: "{{ tools_pkg_list }}"
+    state: present

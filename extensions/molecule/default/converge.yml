@@ -1,0 +1,13 @@
+---
+- name: Include a playbook from a collection
+  ansible.builtin.import_playbook: daurrutia.devtooling_collx.setup_playbook.yml
+
+# ---
+# - name: Converge - Include a role from a collection
+#   hosts: localhost
+#   gather_facts: false
+#   tasks:
+#     - name: Converge - Testing role
+#       ansible.builtin.include_role:
+#         name: daurrutia.devtooling_collx.setup_role
+#         tasks_from: main.yml
