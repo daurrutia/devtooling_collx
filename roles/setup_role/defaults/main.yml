@@ -1,7 +1,7 @@
 ---
 # defaults file for setup_role
 
-k8s_pkg_list: derailed/k9s/k9s,fluxcd/tap/flux,helm,kubectx,kubernetes-cli,minikube
+k8s_pkg_list: derailed/k9s/k9s,fluxcd/tap/flux,helm,kubectx,kubernetes-cli,kustomize,minikube
 
 dev_pkg_list: go,mysql-client,protobuf
 
