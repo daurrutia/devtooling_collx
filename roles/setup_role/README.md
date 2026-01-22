@@ -1,38 +1,81 @@
-Role Name
-=========
+# Role: setup_role
 
-A brief description of the role goes here.
+Installs DevOps and Kubernetes tools on macOS workstations via Homebrew.
 
-Requirements
-------------
+## Requirements
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+- macOS
+- Homebrew installed
+- Ansible >=2.15.3
+- `community.general` collection (for `homebrew` module)
 
-Role Variables
---------------
+## Default Packages
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+The role installs four categories of tools. Customize via `vars` in your playbook.
 
-Dependencies
-------------
+| Category | Packages |
+|----------|----------|
+| **Kubernetes** | k9s, flux, helm, kubectx, kubectl, kustomize, minikube, sops, argocd, kind, velero |
+| **Cloud** | awscli, azure-cli, google-cloud-sdk |
+| **Development** | go, mysql-client, protobuf |
+| **Utilities** | grep, jq, netcat, opentofu, tree, wget, yamllint, jsonlint, yq |
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+See [defaults/main.yml](defaults/main.yml) for exact package lists.
 
-Example Playbook
-----------------
+## Role Variables
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+All variables support comma-separated package names (Homebrew format):
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+```yaml
+k8s_pkg_list: "derailed/k9s/k9s,fluxcd/tap/flux,helm,..."
+cloud_pkg_list: "awscli,azure-cli,google-cloud-sdk"
+dev_pkg_list: "go,mysql-client,protobuf"
+tools_pkg_list: "grep,jq,netcat,opentofu,..."
+```
 
-License
--------
+Override any variable to customize:
 
-BSD
+```yaml
+---
+- hosts: localhost
+  vars:
+    k8s_pkg_list: "helm,kubectl,kustomize"  # Minimal K8s
+    tools_pkg_list: "jq,yq"                 # Minimal tools
+  roles:
+    - daurrutia.devtooling_collx.setup_role
+```
 
-Author Information
-------------------
+## Example Playbook
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Minimal:
+
+```yaml
+---
+- hosts: localhost
+  roles:
+    - daurrutia.devtooling_collx.setup_role
+```
+
+With custom packages:
+
+```yaml
+---
+- hosts: localhost
+  vars:
+    cloud_pkg_list: "awscli"  # AWS only
+    dev_pkg_list: "go,node"   # Go + Node
+  roles:
+    - daurrutia.devtooling_collx.setup_role
+```
+
+## License
+
+GPL-2.0-or-later
+
+## Author
+
+David Urrutia <daurrutia@gmail.com>
+
+## Author
+
+David Urrutia

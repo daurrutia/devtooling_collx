@@ -1,1 +1,14 @@
 *.tar.gz
+
+# Ansible build artifacts
+*.retry
+__pycache__/
+*.pyc
+
+# Molecule
+.molecule/
+.cache/
+
+# Personal Copilot instructions (keep project-wide in .github/)
+.github/copilot-instructions.local.md
+.copilot-instructions.md

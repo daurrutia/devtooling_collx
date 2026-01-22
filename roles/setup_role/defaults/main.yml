@@ -1,8 +1,10 @@
 ---
 # defaults file for setup_role
 
-k8s_pkg_list: derailed/k9s/k9s,fluxcd/tap/flux,helm,kubectx,kubernetes-cli,kustomize,minikube
+k8s_pkg_list: derailed/k9s/k9s,fluxcd/tap/flux,helm,kubectx,kubernetes-cli,kustomize,minikube,sops,argocd,kind,velero
+
+cloud_pkg_list: awscli,azure-cli,google-cloud-sdk
 
 dev_pkg_list: go,mysql-client,protobuf
 
-tools_pkg_list: grep,jq,netcat,terragrunt,tfenv,tree,wget
+tools_pkg_list: grep,jq,netcat,opentofu,tree,wget,yamllint,jsonlint,yq

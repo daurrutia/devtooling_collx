@@ -8,7 +8,7 @@ namespace: daurrutia
 name: devtooling_collx
 
 # The version of the collection. Must be compatible with semantic versioning
-version: 1.0.2
+version: 1.2.0
 
 # The path to the Markdown (.md) readme file. This path is relative to the root of the collection
 readme: README.md
@@ -21,7 +21,7 @@ authors:
 
 ### OPTIONAL but strongly recommended
 # A short summary description of the collection
-description: your collection description
+description: An opinionated Ansible collection for setting up macOS development workstations with Kubernetes, cloud, and development tools via Homebrew
 
 # Either a single license or a list of licenses for content inside of a collection. Ansible Galaxy currently only
 # accepts L(SPDX,https://spdx.org/licenses/) licenses. This key is mutually exclusive with 'license_file'
@@ -34,25 +34,33 @@ license_file: ''
 
 # A list of tags you want to associate with the collection for indexing/searching. A tag name has the same character
 # requirements as 'namespace' and 'name'
-tags: []
+tags:
+  - macos
+  - homebrew
+  - kubernetes
+  - development
+  - workstation
+  - devops
+  - cloud
 
 # Collections that this collection requires to be installed for it to be usable. The key of the dict is the
 # collection label 'namespace.name'. The value is a version range
 # L(specifiers,https://python-semanticversion.readthedocs.io/en/latest/#requirement-specification). Multiple version
 # range specifiers can be set and are separated by ','
-dependencies: {}
+dependencies:
+  community.general: ">=8.0.0"
 
 # The URL of the originating SCM repository
-repository: http://example.com/repository
+repository: https://github.com/daurrutia/devtooling_collx
 
 # The URL to any online docs
-documentation: http://docs.example.com
+documentation: https://github.com/daurrutia/devtooling_collx/blob/main/README.md
 
 # The URL to the homepage of the collection/project
-homepage: http://example.com
+homepage: https://github.com/daurrutia/devtooling_collx
 
 # The URL to the collection issue tracker
-issues: http://example.com/issue/tracker
+issues: https://github.com/daurrutia/devtooling_collx/issues
 
 # A list of file glob-like patterns used to filter any files or directories that should not be included in the build
 # artifact. A pattern is matched from the relative path of the file or directory of the collection directory. This

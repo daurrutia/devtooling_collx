@@ -15,7 +15,12 @@
     name: "{{ dev_pkg_list }}"
     state: present
 
-- name: Install additional tooling packages
+- name: Install cloud tooling packages
+  community.general.homebrew:
+    name: "{{ cloud_pkg_list }}"
+    state: present
+
+- name: Install utilities and tools
   community.general.homebrew:
     name: "{{ tools_pkg_list }}"
     state: present
