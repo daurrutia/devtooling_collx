@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.1] - 2026-01-22
+
+### Fixed
+
+- Removed role-level dependency on `community.general` (collection dependency already declared) to avoid missing role errors
+
 ## [1.3.0] - 2026-01-22
 
 ### Added
