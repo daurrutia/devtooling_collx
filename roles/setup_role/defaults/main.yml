@@ -1,6 +1,11 @@
 ---
 # defaults file for setup_role
 
+install_k8s: true
+install_cloud: true
+install_dev: true
+install_tools: true
+
 k8s_pkg_list: derailed/k9s/k9s,fluxcd/tap/flux,helm,kubectx,kubernetes-cli,kustomize,minikube,sops,argocd,kind,velero
 
 cloud_pkg_list: awscli,azure-cli,google-cloud-sdk

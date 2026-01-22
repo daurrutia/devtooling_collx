@@ -45,6 +45,15 @@ Override any variable to customize:
     - daurrutia.devtooling_collx.setup_role
 ```
 
+Skip entire categories with booleans (default: true):
+
+```yaml
+install_k8s: false
+install_cloud: true
+install_dev: false
+install_tools: true
+```
+
 ## Example Playbook
 
 Minimal:
@@ -75,7 +84,3 @@ GPL-2.0-or-later
 ## Author
 
 David Urrutia <daurrutia@gmail.com>
-
-## Author
-
-David Urrutia

@@ -9,18 +9,22 @@
   community.general.homebrew:
     name: "{{ k8s_pkg_list }}"
     state: present
+  when: install_k8s | bool
 
 - name: Install software development packages
   community.general.homebrew:
     name: "{{ dev_pkg_list }}"
     state: present
+  when: install_dev | bool
 
 - name: Install cloud tooling packages
   community.general.homebrew:
     name: "{{ cloud_pkg_list }}"
     state: present
+  when: install_cloud | bool
 
 - name: Install utilities and tools
   community.general.homebrew:
     name: "{{ tools_pkg_list }}"
     state: present
+  when: install_tools | bool

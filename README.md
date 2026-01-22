@@ -80,6 +80,15 @@ Available variables (see [defaults/main.yml](roles/setup_role/defaults/main.yml)
 - `dev_pkg_list` — Development runtimes
 - `tools_pkg_list` — Utilities and validation
 
+Skip categories entirely (defaults: all true):
+
+```yaml
+install_k8s: false
+install_cloud: true
+install_dev: false
+install_tools: true
+```
+
 ## Development
 
 ### Setup
