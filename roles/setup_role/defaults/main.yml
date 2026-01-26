@@ -12,4 +12,4 @@ cloud_pkg_list: awscli,azure-cli,google-cloud-sdk
 
 dev_pkg_list: go,mysql-client,protobuf
 
-tools_pkg_list: grep,jq,netcat,opentofu,tree,wget,yamllint,jsonlint,yq
+tools_pkg_list: grep,jq,netcat,opentofu,tree,wget,yamllint,jsonlint,yq,tflint
