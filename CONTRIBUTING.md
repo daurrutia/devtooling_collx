@@ -33,6 +33,53 @@ source ~/.zshrc
 5. Commit with a clear message.
 6. Open a PR.
 
+## Release Process
+
+Follow these steps to create and publish a new release of the collection:
+
+1. Ensure tests pass:
+
+   ```bash
+   cd extensions
+   molecule test
+   ```
+
+2. Bump the version in [galaxy.yml](galaxy.yml) using semantic versioning.
+3. Add a corresponding entry to [CHANGELOG.md](CHANGELOG.md).
+4. Commit and tag the release:
+
+   ```bash
+   git add -A
+   git commit -m "release: vX.Y.Z"
+   git tag vX.Y.Z
+   git push origin main --tags
+   ```
+
+5. Build the collection artifact from repo root:
+
+   ```bash
+   ansible-galaxy collection build
+   # Produces daurrutia-devtooling_collx-X.Y.Z.tar.gz
+   ```
+
+6. Publish to Galaxy (use an env var or pass token):
+
+   ```bash
+   # Option A: Env var
+   export ANSIBLE_GALAXY_TOKEN=YOUR_TOKEN
+   ansible-galaxy collection publish daurrutia-devtooling_collx-X.Y.Z.tar.gz
+
+   # Option B: CLI token
+   ansible-galaxy collection publish daurrutia-devtooling_collx-X.Y.Z.tar.gz \
+     --token YOUR_TOKEN
+   ```
+
+7. Verify on Ansible Galaxy and optionally test install locally:
+
+   ```bash
+   ansible-galaxy collection install daurrutia.devtooling_collx:X.Y.Z --force
+   ```
+
 ## Versioning
 
 - Patch: bug fixes / docs

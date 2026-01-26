@@ -142,6 +142,49 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 For project conventions and coding standards, see [.github/copilot-instructions.md](.github/copilot-instructions.md).
 
+## Release
+
+Documented steps to push code, build the collection artifact, and publish to Ansible Galaxy.
+
+### Prerequisites
+
+- Tests pass: `cd extensions && molecule test`
+- Version updated in [galaxy.yml](galaxy.yml) following semver
+- Changes noted in [CHANGELOG.md](CHANGELOG.md)
+- Ansible >= 2.15.3 and `community.general` installed
+- Galaxy token available (set `ANSIBLE_GALAXY_TOKEN` or pass `--token`)
+
+### Push, Build, Publish
+
+```bash
+# From repo root
+
+# 1) Push code (optional but recommended)
+git add -A
+git commit -m "release: vX.Y.Z"
+git tag vX.Y.Z
+git push origin main --tags
+
+# 2) Build the collection artifact
+ansible-galaxy collection build
+# Produces daurrutia-devtooling_collx-X.Y.Z.tar.gz
+
+# 3) Publish to Galaxy (choose one)
+# a) Using env var
+export ANSIBLE_GALAXY_TOKEN=YOUR_TOKEN
+ansible-galaxy collection publish daurrutia-devtooling_collx-X.Y.Z.tar.gz
+
+# b) Passing token explicitly
+ansible-galaxy collection publish daurrutia-devtooling_collx-X.Y.Z.tar.gz \
+  --token YOUR_TOKEN
+```
+
+Verification: check the release on Galaxy and install locally:
+
+```bash
+ansible-galaxy collection install daurrutia.devtooling_collx:X.Y.Z --force
+```
+
 ## License
 
 GPL-2.0-or-later

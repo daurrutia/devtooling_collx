@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.3] - 2026-01-26
+
+### Changed
+
+- Documentation: added explicit Release workflow (push, build, publish) to README and CONTRIBUTING
+
+## [1.3.2] - 2026-01-26
+
+### Added
+
+- Added TFLint
+
 ## [1.3.1] - 2026-01-22
 
 ### Fixed
